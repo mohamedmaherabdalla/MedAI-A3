@@ -37,6 +37,18 @@ Start Jupyter from this folder, because all the paths in the notebook are relati
 The notebook creates `report/figures/` and `results/` as it runs and writes its figures and
 tables there. Both are gitignored, so they appear locally but are not part of the repo.
 
+## How the code is written
+
+Each section opens with a comment block saying what it takes and what it returns, then
+its functions, then the cells that run them. Every function carries a two-line docstring:
+the first line is what it is, the second is its input and output. The point is that any
+one function can be read and explained on its own, without the rest of the notebook.
+
+The checks are part of the code, not an afterthought. Section B asserts that batching
+loses no molecule and no atom, and section C asserts that the splits cover every molecule
+once, share no canonical SMILES, and (for the scaffold split) share no scaffold group.
+Those are the mistakes that would not crash, they would just quietly give a better number.
+
 ## Seeds
 
 Seed 42 for the splits and the baseline. Seeds 1, 2 and 3 for the three GNN runs.
@@ -53,4 +65,5 @@ hardcoded further down.
 | D | Morgan fingerprints plus logistic regression, with C, class weight and threshold all chosen on validation. |
 | E | The GINEConv model, the training loop, and three seeds per split. |
 | F | Test metrics for both models under both splits, the curves, the confusion matrices and a bootstrap on the gap. |
-| G | The most confident errors, their nearest training molecules, and the limitations. |
+| G | The most confident errors, each beside its nearest training molecule. |
+| H | What this setup cannot support: label noise, dataset size, no outside validation. |
