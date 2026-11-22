@@ -1,0 +1,26 @@
+# Local Python environment
+.venv/
+venv/
+
+# Dataset — downloaded by PyTorch Geometric, never upload
+data/
+
+# Report sources and generated outputs
+report/
+results/
+*.pdf
+
+# Trained models
+*.pt
+*.pth
+
+# Python/Jupyter temporary files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# AI use declaration — added separately by me, not tracked here yet
+ai_use_declaration.txt
+
+# Operating-system files
+.DS_Store
